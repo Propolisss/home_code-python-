@@ -1,27 +1,21 @@
-def simple(n):
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
-def summ_digits(n):
-    st = str(n)
-    summ = 0
-    for i in range(len(st)):
-        summ += int(st[i])
-    return summ
-def fac(n):
-    fact = 1
-    for i in range(1, n + 1):
-        fact *= i
-    return fact
-def count_simple_dels(n):
-    dels = set()
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
-            if simple(i):
-                dels.add(i)
-            if simple(n // i):
-                dels.add(n // i)
-    return len(dels)
+nums = set()
+count = 0
 
-print(int(5.9999999999999999))
+for i in range(100000):
+    temp_bin_num = oct(i)[2:]
+    if len(temp_bin_num) == 5:
+        nums.add(temp_bin_num)
+
+for i in nums:
+    if i.count('6') == 1:
+        index_of_six = i.find('6')
+        if index_of_six == 0:
+            if int(i[index_of_six + 1]) % 2 == 0:
+                count += 1
+        elif index_of_six == len(i) - 1:
+            if int(i[index_of_six - 1]) % 2 == 0:
+                count += 1
+        else:
+            if int(i[index_of_six + 1]) % 2 == 0 and int(i[index_of_six - 1]) % 2 == 0:
+                count += 1
+print(count)
