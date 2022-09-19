@@ -36,11 +36,10 @@ def QuickSort(arr):
             else:
                 mid.append(elem)
         return QuickSort(left) + mid + QuickSort(right)
-    return arr
 
 
-for i in range(10_000_000, 0, -1):
+for i in range(1000000, 0, -1):
     nums.append(i)
 
-#print(QuickSort(nums))
-print(quick_sort(nums, 0, len(nums) - 1))
+print(QuickSort(nums))
+#print(quick_sort(nums, 0, len(nums) - 1))
