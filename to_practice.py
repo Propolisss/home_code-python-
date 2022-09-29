@@ -1,10 +1,9 @@
-st = input()
-ans = []
+ch = input().split()
+ss = list(int(i) for i in ch)
 
-while st != '*':
-    if st not in ans:
-        ans.append(st)
-    st = input()
-ans.sort(reverse=True)
-
-print(ans)
+for i in range(len(ss)):
+    for j in range(len(ss)):
+        if i != j and ss[i] == ss[j]:
+            break
+    else:
+        print(ss[i])
