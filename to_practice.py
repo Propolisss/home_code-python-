@@ -1,7 +1,7 @@
 delt = []
 nums = []
 
-def f(start, end, count, current):
+def f(start, end, current):
     global nums
     global delt
     nums.append(current)
@@ -16,6 +16,6 @@ def f(start, end, count, current):
     if start == end:
         return 1
     else:
-        return f(start * 2, end, count + 1, 1) + f(start + 1, end, count + 1, 2) + f(start + 3, end, count + 1, 3)
+        return f(start * 2, end, 1) + f(start + 1, end, 2) + f(start + 3, end, 3)
 
-print(f(3, 20, 0, 0) * f(20, 60, 0, 0))
+print(f(3, 20, 0) * f(20, 60, 0))
