@@ -1,31 +1,25 @@
 from functools import lru_cache
 
-delt = []
-nums = []
+pust = ''
 
-#@lru_cache
-def f(start, end, current):
-    global nums
-    global delt
-    if len(delt) > 0:
-        nums = delt[-1][:]
-    nums.append(current)
-    delt.append(nums[:])
-    for i in range(1, len(delt[-1])):
-        if delt[-1][i - 1] == 1 and delt[-1][i] == 1:
-            del delt[-1]
-            #delt.clear()
-            nums.clear()
+@lru_cache
+def f(start, end, current, pust):
+    previous = pust[:]
+    previous += str(current)
+    for i in range(1, len(previous)):
+        if previous[i - 1] == 3 and previous[i] == 3:
             return 0
-    if start > end or start == 33:
-        #delt.clear()
-        nums.clear()
+    if start > end or start == 28:
         return 0
     if start == end:
-        #delt.clear()
-        nums.clear()
+        #print(previous)
+        previous = previous[:-1]
         return 1
     else:
-        return f(start * 2, end, 1) + f(start + 1, end, 2) + f(start + 3, end, 3)
+        f1 = f(start + 1, end, 1, previous)
+        f2 = f(start + 3, end, 2, previous)
+        f3 = f(start * 2, end, 3, previous)
+        return f1 + f2 + f3
 
-print(f(2, 18, 0) * f(18, 51, 0))
+
+print(f(4, 10, 0, pust) * f(10, 93, 0, pust))
