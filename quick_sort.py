@@ -1,23 +1,23 @@
 def quick_sort(arr, left, right):
     if left >= right:
         return
-    else:
-        i = left
-        j = right
-        pivot = (left + right) // 2
-        while i <= j:
-            while arr[i] < arr[pivot]:
-                i += 1
-            while arr[j] > arr[pivot]:
-                j -= 1
-            if i <= j:
-                arr[i], arr[j] = arr[j], arr[i]
-                i += 1
-                j -= 1
-        quick_sort(arr, left, j)
-        quick_sort(arr, i, right)
+    i = left
+    j = right
+    pivot = (i + j + 1) // 2
+    while i <= j:
+        while arr[i] < arr[pivot]:
+            i += 1
+        while arr[j] > arr[pivot]:
+            j -= 1
+        if i <= j:
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+            j -= 1
+            quick_sort(arr, left, j)
+            quick_sort(arr, i, right)
+
     return arr
-nums = []
+nums = [4, 5, 1, 2, 3, 8]
 
 
 def QuickSort(arr):
@@ -38,8 +38,7 @@ def QuickSort(arr):
         return QuickSort(left) + mid + QuickSort(right)
 
 
-for i in range(1000000, 0, -1):
-    nums.append(i)
 
-print(QuickSort(nums))
-#print(quick_sort(nums, 0, len(nums) - 1))
+
+#print(QuickSort(nums))
+print(quick_sort(nums, 0, len(nums) - 1))
