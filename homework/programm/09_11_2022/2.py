@@ -7,7 +7,7 @@ for i in range(len(st)):
         if st[j] == '\n':
             continue
         temp_st += st[j]
-        if all(ord(temp_st[k - 1]) > ord(temp_st[k]) for k in range(1, len(temp_st))):
+        if all(ord(temp_st[k - 1]) >= ord(temp_st[k]) for k in range(1, len(temp_st))):
             maxx = max(maxx, len(temp_st))
         else:
             break

@@ -1,29 +1,17 @@
-sn = open('24-208.txt').readline()
-s = sn.replace('2022', '*')
 
-count1 = 0
-count6 = 0
-counter = 0
-maxx = 0
-i = 0
-temp_st = ''
 
-while i < len(s):
-    if s[i] == '*':
-        counter += 1
-        temp_st += '2022'
-        if counter == 1:
-            count1 = i
-        if counter == 6:
-            count6 = i
-        if counter == 6:
-            maxx = max(maxx, len(s[count1 + 1:count6].replace('*', '2022')) + 3)
-            temp_st = ''
-            counter = 0
-            i = count1
-            count1 = 0
-            count6 = 0
-    else:
-        temp_st += s[i]
-    i += 1
-print(maxx)
+def f(n):
+    if n < 2:
+        return n
+    if (n >= 2) and (n % 2 == 0):
+        return f(n // 2) + 1
+    if (n >= 2) and (n & 1):
+        return f(n * 3 + 1) + 1
+
+count = 0
+for i in range(1, 100 + 1):
+    try:
+        if f(i) > 100:
+            count += 1
+
+print(count)
