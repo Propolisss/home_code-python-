@@ -1,35 +1,16 @@
-s = [i for i in open('24-164.txt')]
-lens = []
-dic = [[0] * len(s) for _ in range(256)]
+from itertools import *
+ans = set()
 
-maxx_len = float('-inf')
-for i in range(len(s)):
-    st = ''
-    local_max = float('-inf')
-    for j in range(len(s[i])):
-        dic[ord(s[i][j])][i] += 1
-        st = s[i][j]
-        k = j + 1
-
-        while k < len(s[i]):
-            if st[-1] == s[i][k]:
-                st += s[i][k]
-                k += 1
-            else:
-                break
-
-        maxx_len = max(maxx_len, len(st))
-        local_max = max(local_max, len(st))
-    lens.append(local_max)
-
-row = lens.index(maxx_len)
-
-maxx_let = float('-inf')
-count_maxx_let = 0
-
-for i in range(len(dic)):
-    if dic[i][row] > count_maxx_let:
-        count_maxx_let = dic[i][row]
-        maxx_let = i
-
-print(chr(maxx_let), sum(dic[maxx_let]), sep='')
+s = list(map(''.join, product('10789', repeat=4)))
+print(len(s))
+for i in s:
+    st = i
+    while '900' in st or '70' in st or '8' in st:
+        st = st.replace('900', '8000', 1)
+        st = st.replace('70', '900', 1)
+        st = st.replace('8', '70', 1)
+        if len(st) == 71 and st[0] == '1':
+            ans.add(int(i))
+        elif len(st) > 71:
+            break
+print(sorted(ans))
