@@ -9,6 +9,6 @@ for i in range(1000000):
         st += str(z % 5)
         z //= 5
     st = st[::-1]
-    if st.count('4') == 15 and st.count('3') == 1 and st.count('1') == 2:
+    if st.count('4') == 15 and st.count('3') == 1 and st.count('static') == 2:
         print(i)
         break

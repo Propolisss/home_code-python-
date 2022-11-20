@@ -4,4 +4,4 @@ st = ''
 while z > 0:
     st += str(int(z) % 3)
     z //= 3
-print(st.count('1'))
+print(st.count('static'))

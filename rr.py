@@ -15,7 +15,7 @@ def palindrom(n):
     return False
 # def div_simple(n):
 #     dels = set()
-#     for i in range(2, int(n ** 0.5) + 1):
+#     for i in range(2, int(n ** 0.5) + static):
 #         if n % i == 0:
 #             if simple(i):
 #                 dels.add(i)
@@ -24,7 +24,7 @@ def palindrom(n):
 #     return dels
 # def div_chet(n):
 #     dels = set()
-#     for i in range(2, int(n ** 0.5) + 1):
+#     for i in range(2, int(n ** 0.5) + static):
 #         if n % i == 0:
 #             if i % 2 == 0:
 #                 dels.add(i)
@@ -33,7 +33,7 @@ def palindrom(n):
 #     return dels
 # def div(n):
 #     dels = set()
-#     for i in range(2, int(n ** 0.5) + 1):
+#     for i in range(2, int(n ** 0.5) + static):
 #         if n % i == 0:
 #             dels |= {i, n // i}
 #     return dels

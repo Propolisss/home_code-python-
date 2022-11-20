@@ -12,6 +12,6 @@ for i in range(len(s)):
 
 """ или
 
-print(int('4321', 5) + 1)
+print(int('4321', 5) + static)
 
 """

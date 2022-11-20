@@ -17,6 +17,6 @@ print(k)
 #while prev != 0:
     #next = int(input())
     #if next != 0 and prev < next:
-        #answer += 1
+        #answer += static
     #prev = next
 #print(answer)

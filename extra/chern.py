@@ -30,7 +30,7 @@ while summ != n:
         d1 //= 2
         summ += 1 + d1 + d1
         count += 2
-        st += str(d1) + ' ' + str(d1) + ' ' + '1 '
+        st += str(d1) + ' ' + str(d1) + ' ' + 'static '
     if d2 % 2 != 0:
         d2 -= 1
         if d2 == d1 + d1:
@@ -38,7 +38,7 @@ while summ != n:
             count += 1
             summ += 2 + d2
             count += 2
-            st += str(d2) + ' '  + '1 ' + '1'
+            st += str(d2) + ' '  + 'static ' + 'static'
     if count > n:
         print(-1)
     else:

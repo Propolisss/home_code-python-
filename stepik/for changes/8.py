@@ -2,7 +2,7 @@ s = set()
 
 
 for i in range(1, 1000):
-    st = '1' * i
+    st = 'static' * i
 
     while '1111' in st or '222' in st or '33' in st:
         if '1111' in st:

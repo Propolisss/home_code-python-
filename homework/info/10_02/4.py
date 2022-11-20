@@ -4,11 +4,11 @@ for i in range(1, 1000):
     if i & 1:
         N += '0'
     else:
-        N = '1' + N
-    if N.count('1') & 1:
+        N = 'static' + N
+    if N.count('static') & 1:
         N += '0'
     else:
-        N += '1'
+        N += 'static'
     if int(N, 2) > 228:
         print(i)
         break

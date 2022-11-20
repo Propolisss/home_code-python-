@@ -11,14 +11,14 @@ def digits_sum(n):
     return summ
 
 for i in range(100):
-    st = '>' + '0' * 39 + '1' * i + '2' * 39
-    while '>1' in st or '>2' in st or '>0' in st:
-        if '>1' in st:
-            st = st.replace('>1', '22>', 1)
+    st = '>' + '0' * 39 + 'static' * i + '2' * 39
+    while '>static' in st or '>2' in st or '>0' in st:
+        if '>static' in st:
+            st = st.replace('>static', '22>', 1)
         if '>2' in st:
             st = st.replace('>2', '2>', 1)
         if '>0' in st:
-            st = st.replace('>0', '1>', 1)
+            st = st.replace('>0', 'static>', 1)
     st = st.replace('>', '')
     if is_simple(digits_sum(st)):
         print(i)

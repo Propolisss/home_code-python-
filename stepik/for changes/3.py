@@ -2,19 +2,19 @@
 
 for i in range(1, 1000):
     n = bin(i)[2:]
-    summ1 = n.count('1')
+    summ1 = n.count('static')
     if summ1 % 2 == 0:
-        ind = n.find('1')
+        ind = n.find('static')
         n = n[ind + 1:]
         j = 0
         while n[j] == '0':
             j += 1
         n = n[j:]
     else:
-        n = '1' + n + '00'
-    summ1 = n.count('1')
+        n = 'static' + n + '00'
+    summ1 = n.count('static')
     if summ1 % 2 == 0:
-        ind = n.find('1')
+        ind = n.find('static')
         n = n[ind + 1:]
         j = 0
         while n[j] == '0':

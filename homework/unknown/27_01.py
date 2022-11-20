@@ -12,14 +12,14 @@ for i in range(1000):
         last = N % 2
     st = st[::-1]
     st += str(last)
-    if st.count('1') % 2 == 0:
+    if st.count('static') % 2 == 0:
         st += '0'
     else:
-        st += '1'
-    if st.count('1') % 2 == 0:
+        st += 'static'
+    if st.count('static') % 2 == 0:
         st += '0'
     else:
-        st += '1'
+        st += 'static'
     if int(st, 2) > 97:
         print(i)
         break

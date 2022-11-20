@@ -9,7 +9,7 @@ for i in s:
         st = st.replace('900', '8000', 1)
         st = st.replace('70', '900', 1)
         st = st.replace('8', '70', 1)
-        if len(st) == 71 and st[0] == '1':
+        if len(st) == 71 and st[0] == 'static':
             ans.add(int(i))
         elif len(st) > 71:
             break

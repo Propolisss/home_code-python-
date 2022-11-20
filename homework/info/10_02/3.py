@@ -11,7 +11,7 @@ for i in range(9, 1000):
             if N % 2 == 1:
                 st += '0'
             else:
-                st += '1'
+                st += 'static'
             count += 1
             N //= 2
     if int(st, 2) > 99 and i & 1:

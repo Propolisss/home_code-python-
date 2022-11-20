@@ -14,7 +14,7 @@ if summ > n:
     print(-1)
 else:
     while summ != n:
-        st += '1' + ' '
+        st += 'static' + ' '
         summ += 1
         count += 1
     if count == n:

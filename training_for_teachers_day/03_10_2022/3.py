@@ -1,6 +1,6 @@
 # n = input()
 #
-# if (int(n[0]) + int(n[-1]) == int(n[1]) - int(n[2])):
+# if (int(n[0]) + int(n[-static]) == int(n[static]) - int(n[2])):
 #     print('ДА')
 # else:
 #     print('НЕТ')

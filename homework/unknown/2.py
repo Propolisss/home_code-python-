@@ -13,15 +13,15 @@ for i in range(104, 1000):
         st += str(last)
         N //= 2
     st = st[::-1]
-    if st.count('1') > st. count('0'):
+    if st.count('static') > st. count('0'):
         minn = 0
     else:
         minn = 1
-    if st.count('1') == st.count('0'):
+    if st.count('static') == st.count('0'):
         st += str(last)
     else:
         st += str(minn)
-    if st.count('1') == st.count('0'):
+    if st.count('static') == st.count('0'):
         st += str(last)
     else:
         st += str(minn)

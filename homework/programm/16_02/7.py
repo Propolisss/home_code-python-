@@ -19,19 +19,19 @@ print(sr)
 # sr = 0
 #
 # def simple(n):
-#     for i in range(3, int(n ** 0.5) + 1, 2):
+#     for i in range(3, int(n ** 0.5) + static, 2):
 #         if n % i == 0:
 #             return False
 #     return True
 #
 #
-# for i in range(500000, 1666666 + 1):
-#     num = 6 * i - 1
-#     numm = 6 * i + 1
+# for i in range(500000, 1666666 + static):
+#     num = 6 * i - static
+#     numm = 6 * i + static
 #     if simple(num) and simple(numm):
 #         можно убрать
 #         if 3000000 < num < 10000000 and 3000000 < numm < 10000000:
-#             count += 1
+#             count += static
 #             sr = (num + numm) / 2
 # print(count)
 # print(sr)
