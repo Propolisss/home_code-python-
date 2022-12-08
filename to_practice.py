@@ -1,16 +1,9 @@
-from itertools import *
-ans = set()
+def f(a, b, c, count, target):
+    if (a + b + c) >= 73: return (count % 2) == (target % 2)
+    if count == target: return 0
+    h = [f(a + 3, b, c, count + 1, target), f(a + 13, b, c, count + 1, target), f(a + 23, b, c, count + 1, target), f(a, b + 3, c, count + 1, target), f(a, b + 13, c, count + 1, target), f(a, b + 23, c, count + 1, target), f(a, b, c + 3, count + 1, target), f(a, b, c + 13, count + 1, target),f(a, b, c + 23, count + 1, target)]
+    return any(h) if (count + 1) % 2 == (target % 2) else all(h)
 
-s = list(map(''.join, product('10789', repeat=4)))
-print(len(s))
-for i in s:
-    st = i
-    while '900' in st or '70' in st or '8' in st:
-        st = st.replace('900', '8000', 1)
-        st = st.replace('70', '900', 1)
-        st = st.replace('8', '70', 1)
-        if len(st) == 71 and st[0] == 'static':
-            ans.add(int(i))
-        elif len(st) > 71:
-            break
-print(sorted(ans))
+for s in range(1, 23 + 1):
+    if f(2, s, 2 * s, 0, 4) and (not f(2, s, 2 * s, 0, 3)):
+        print(s)
