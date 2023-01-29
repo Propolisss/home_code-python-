@@ -1,10 +1,10 @@
-from itertools import *
-
-def f(x, y, z, w):
-    return (x <= y) or (not(w <= z))
-
-table = [(1, 0, 0, 1), (0, 0, 0, 1), (1, 0, 1, 1)]
-if len(table) == len(set(table)):
-    for p in permutations('xyzw'):
-        if [f(**dict(zip(p, row))) for row in table] == [0, 0, 0]:
-            print(*p, sep='')
+st = 'АВ БАГЖ ВБД ГЖ ДЗ ЖЗД ЗВБ'
+dic = {s[0] : s[1:] for s in st.split()}
+ans = set()
+def f(start, end):
+    if start[-1] == end and len(start) > 1:
+        ans.add(start)
+        return 1
+    return sum(f(start + s, end) for s in dic[start[-1]] if start.count(s) <= 1)
+print(f('Г', 'Г'))
+print(len(ans))
