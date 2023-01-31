@@ -1,10 +1,13 @@
-st = 'АВ БАГЖ ВБД ГЖ ДЗ ЖЗД ЗВБ'
-dic = {s[0] : s[1:] for s in st.split()}
-ans = set()
-def f(start, end):
-    if start[-1] == end and len(start) > 1:
-        ans.add(start)
-        return 1
-    return sum(f(start + s, end) for s in dic[start[-1]] if start.count(s) <= 1)
-print(f('Г', 'Г'))
-print(len(ans))
+from functools import *
+from sys import *
+setrecursionlimit(1000000)
+
+@lru_cache(None)
+def f(n):
+    if n == 1:
+        return 2
+    else:
+        print(f(n - 1), (3 ** (n % 5)), (3 ** (n % 7)))
+        return f(n - 1) * (3 ** (n % 5)) / (3 ** (n % 7))
+
+print(f(5))
