@@ -12,7 +12,7 @@ def find_min_process(cores_):
             minn_ = summ_
             ind_ = i
     return ind_, minn_
-core = 3
+core = 4
 cores = [[] for _ in range(core)]
 dic = {'0' : 0}
 count_zeroes = 0
