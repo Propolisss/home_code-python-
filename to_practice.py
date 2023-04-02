@@ -1,5 +1,7 @@
-fac = 1
+from itertools import *
 
-for i in range(1, 90 + 1):
-    fac *= i
-print(oct(fac)[2:])
+nums = [10 ** i for i in range(8)]
+
+for a in combinations(nums, 3):
+    if max(a) ** 2 == min(a) ** 2 + sorted(a)[1] ** 2:
+        print(a)
