@@ -1,16 +1,15 @@
-from functools import *
-@lru_cache(None)
-def f(lenn, count, prev, curr):
-    if lenn == 10:
-        return count == 5
-    summ = 0
+from itertools import *
 
-    for i in '01234567':
-        if curr == '7':
-            summ += f(lenn + 1, count + 1 if i == '7' else count, curr, i) if i not in '1357' else 0
-        elif curr in '1357':
-            summ += f(lenn + 1, count + 1 if i == '7' else count, curr, i) if i != '7' else 0
-        else:
-            summ += f(lenn + 1, count + 1 if i == '7' else count, curr, i)
-    return summ
-print(sum(f(1, 1 if let == '7' else 0, '', let) for let in '1234567'))
+def f(x):
+    b = 18 <= x <= 52
+    c = 16 <= x <= 41
+    a = a1 <= x <= a2
+    return (b <= a) and ((not c) or a)
+
+ox = [i / 4 for i in range(15 * 4, 53 * 4 + 1)]
+lens = []
+
+for a1, a2 in combinations(ox, 2):
+    if all(f(x) == 1 for x in ox):
+        lens.append(a2 - a1)
+print(min(lens))
