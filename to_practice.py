@@ -1,15 +1,9 @@
-from itertools import *
+s = 'АБЖ БЗВ ВГ ГЗЖД ДЖАЕК ЕИА ЖЗ ЗАВ ИА КЕ'
+dic = {st[0] : st[1:] for st in s.split()}
 
-def f(x):
-    b = 18 <= x <= 52
-    c = 16 <= x <= 41
-    a = a1 <= x <= a2
-    return (b <= a) and ((not c) or a)
+def f(start, end):
+    if start[-1] == end:
+        return 1
+    return sum(f(start + let, end) for let in dic[start[-1]] if let not in start)
 
-ox = [i / 4 for i in range(15 * 4, 53 * 4 + 1)]
-lens = []
-
-for a1, a2 in combinations(ox, 2):
-    if all(f(x) == 1 for x in ox):
-        lens.append(a2 - a1)
-print(min(lens))
+print(f('В', 'З') + f('А', 'З'))
