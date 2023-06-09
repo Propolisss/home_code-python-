@@ -1,9 +1,11 @@
-from math import sqrt
+a = 'ИНФОРМАТИКА'
+m = 10
+b = a[m - 1]
 
-count = 0
-
-for x in range(-1000, 1000):
-    for y in range(-1000, 1000):
-        if x < 0 and y > -(1 / (3 ** 0.5)) * x and y < 1 / (3 ** 0.5) * x + 30:
-            count += 1
-print(count)
+for k in range(4, 6):
+    c = a[k - 1]
+    b += c
+for k in range(1, 4):
+    c = a[k - 1]
+    b += c
+print(b)
