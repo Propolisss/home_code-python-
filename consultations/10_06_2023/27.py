@@ -1,4 +1,4 @@
-file = open('27a_8483.txt')
+file = open('27b_8483.txt')
 n = int(file.readline())
 k = int(file.readline())
 maxx = float('-inf')
@@ -13,7 +13,7 @@ nums = [int(i) for i in file]
 
 maxx_num1 = float('-inf')
 file.close()
-filee = open('27a_8483.txt')
+filee = open('27b_8483.txt')
 n1 = int(filee.readline())
 n1 = int(filee.readline())
 rev = nums[::-1]
@@ -31,8 +31,8 @@ for i in range(n):
     num = int(filee.readline())
     if i < k or i > n - k - 1:
         continue
-    if i % 500 == 0:
-        print(n - i, i)
+    # if i % 500 == 0:
+    #     print(n - i, i)
     count += 1
     #print(nums[i - k], num, rev[n - 2 * k - count])
     maxx_num1 = max(maxx_num1, nums[i - k])
