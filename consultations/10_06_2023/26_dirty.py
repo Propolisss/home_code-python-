@@ -4,11 +4,9 @@ k = int(file.readline())
 nums = sorted([list(map(int, i.split())) for i in file])
 dic = dict()
 tables = dict()
-
 for i in range(k):
     tables[i] = [0, 0]
 maxx_time = float('-inf')
-
 for i in nums:
     if i[0] in dic:
         dic[i[0]].append(i[1])
@@ -20,28 +18,49 @@ for i in nums:
 def find_table(num):
     minn_id = float('inf')
     minn = float('inf')
+    # if any(tables[i][1] == 0 for i in tables):
+    #     for i in tables:
+    #         if tables[i][1] == 0:
+    #             return (i, 0)
+    # elif any(tables[i][1] < num for i in tables):
+    #     for i in tables:
+    #         if tables[i][1] < num:
+    #             return (i, 0)
     for i in tables:
         if tables[i][1] <= num:
             return (i, 0)
+        # elif tables[i][1] == num:
+        #     return (i, 'True')
     for i in tables:
         if (tables[i][1] - num) < minn:
             minn_id = i
             minn = tables[i][1] - num
-    return (minn_id, minn)
+    # if minn < 0:
+    #     return (minn_id, 0)
+    if minn > 0:
+        return (minn_id, minn)
+    return (minn_id, 0)
 
 count = 0
 last = float('-inf')
+ll = 0
 for i in range(maxx_time + 1):
     if i in dic:
         for j in dic[i]:
             idd = find_table(i)
+            ll = tables[idd[0]]
             if j + int(idd[1]) > (23 * 60):
                 continue
             if 0 <= idd[1] <= 10:
                 if idd[1] == 0:
                     tables[idd[0]] = [i, j + 6]
+                # elif idd[1] == 0:
+                #     tables[idd[0]] = [i, j + 5]
                 else:
                     tables[idd[0]] = [i + idd[1], j + 6 + idd[1]]
+
+                #tables[idd[0]] = [i if count < k else i + idd[1] + 1, j + 5 if count < k else j + 5 + idd[1] + 1]
                 count += 1
                 last = idd[0]
+                print(count, idd[0] + 1, tables[last], i, j, idd[1], ll)
 print(count, last + 1)
