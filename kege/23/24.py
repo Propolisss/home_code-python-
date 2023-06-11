@@ -1,9 +1,8 @@
-def f(start, end, count1):
-    count1 += (start & 1)
-    if start > end or count1 > 1:
+def f(start, end, count):
+    if start > end:
         return 0
     elif start == end:
-        return count1 == 1
+        return count == 6
     else:
-        return f(start + 1, end, count1) + f(start + 2, end, count1) + f(start * 2, end, count1)
-print(f(2, 40, 0))
+        return f(start + 1, end, count + (start % 2 == 0)) + f(start + 3, end, count + (start % 2 == 0)) + f(start + 5, end, count + (start % 2 == 0))
+print(f(3, 25, 0))

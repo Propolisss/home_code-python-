@@ -1,6 +1,5 @@
 from functools import lru_cache
 
-
 @lru_cache(None)
 def f(n):
     if n > 3456:
