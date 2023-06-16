@@ -22,4 +22,4 @@ count = 0
 for i in nums:
     if str(i)[0] == minn_let:
         count += 1
-print(count)
+print(count, minn)
